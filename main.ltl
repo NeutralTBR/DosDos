@@ -30,3 +30,13 @@ fn getRandom(dosen: Vec<Dosen>, input_cat: str) -> str {
 
     return matches[randIdx].descr 
 }
+
+pub fn main() {
+    let json_data
+
+    let dosen = getDosen(json_data)
+    let searchInput = "n_OFFICIAL_NM"
+    let randomVal = getRandom(dosen,searchInput)
+
+    io.println("{randomVal}")
+}
