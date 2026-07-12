@@ -12,7 +12,7 @@ pub struct Dosen {
     emplid: str
 }
 
-fn get_dosen(json_string: str) -> Vec[Dosen] {
-    let data: Vec[Dosen] = json.parse(json_string)
+fn getDosen(json_string: str) -> Vec<Dosen> {
+    let data: Vec<Dosen> = json.parse(json_string)
     return data
 }
