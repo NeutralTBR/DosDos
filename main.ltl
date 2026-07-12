@@ -16,3 +16,17 @@ fn getDosen(json_string: str) -> Vec<Dosen> {
     let data: Vec<Dosen> = json.parse(json_string)
     return data
 }
+
+fn getRandom(dosen: Vec<Dosen>, input_cat: str) -> str {
+    let matches = dosen
+        |> filter(fn(d) d.n_OFFICIAL_NM == input_cat)
+        |> collect_into_list()
+    
+    if matches.len() == 0 {
+        return "No entries match"
+    }
+
+    let randIdx = random.rand_range(0, matches.len())
+
+    return matches[randIdx].descr 
+}
