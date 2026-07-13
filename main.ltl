@@ -4,7 +4,7 @@ import json
 import random
 
 fn main() {
-    let selected_person = open("dosen.json").read()
+    let selectedPerson = open("dosen.json").read()
         |> json.loads()
         |> random.choice()
         
