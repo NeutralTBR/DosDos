@@ -2,11 +2,22 @@ module DosDos
 
 import json
 import random
+import tkinter
 
 fn main() {
     let selectedPerson = open("dosen.json").read()
         |> json.loads()
         |> random.choice()
         
-    print(selected_person["n_OFFICIAL_NM"])
+    let finalName = selectedPerson["n_OFFICIAL_NM"]
+
+    let root = tkinter.Tk()
+    root.title("Random Dosen Selector")
+    root.geometry("400x150")
+
+    let label = tkinter.Label(root)
+    label["text"] = finalName
+    label.pack()
+
+    root.mainloop()
 }
