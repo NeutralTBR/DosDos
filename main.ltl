@@ -2,7 +2,7 @@ module DosDos
 
 import json
 import random
-import tkinter as tk
+import customtkinter as ctk
 
 fn main() {
     let selectedPerson = open("dosen.json").read()
@@ -11,13 +11,16 @@ fn main() {
         
     let finalName = selectedPerson["n_OFFICIAL_NM"]
 
-    let root = tk.Tk()
+    ctk.set_appearance_mode("dark")
+    ctk.set_default_color_theme("blue")
+
+    let root = ctk.CTk()
     root.title("Random Dosen Selector")
     root.geometry("400x150")
 
-    let label = tk.Label(root)
-    label["text"] = finalName
-    label.pack()
+    let label = ctk.CTkLabel(root)
+    label.configure(text=finalName, font=("Arial", 20))
+    label.pack(pady=60)
 
     root.mainloop()
 }
