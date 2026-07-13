@@ -1,6 +1,5 @@
 module DosDos
 
-import io
 import json
 import random
 
