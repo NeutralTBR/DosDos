@@ -22,6 +22,12 @@ This project is written in [Lateralus](https://lateralus.dev/) (`.ltl`) and comp
 pip install customtkinter
 ```
 
+## How To Run
+
+```bash
+lateralus run main.ltl
+```
+
 ## Data Format
 
 ```json
