@@ -31,8 +31,15 @@ fn main() {
     root.minsize(400, 300)
 
     let label = ctk.CTkLabel(root)
-    label.configure(text=finalName, font=("Arial", 20))
-    label.pack(pady=60)
+    label.configure(text=greeting, font=("Arial", 24), justify="center")
+    label.place(relx=0.5, rely=0.5, anchor="center")
+
+    root.bind("<Configure>", fn(event) {
+        let currentWidth = root.winfo_width() - 40
+        if currentWidth > 0 {
+            label.configure(wraplength = currentWidth)
+        }
+    })
 
     root.mainloop()
 }
