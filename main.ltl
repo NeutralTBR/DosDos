@@ -4,6 +4,15 @@ import json
 import random
 import customtkinter as ctk
 
+fn get_pembimbing_name(dosen_list, target_id) {
+    for dosen in dosen_list {
+        if dosen["externaL_SYSTEM_ID"] == target_id {
+            return dosen["n_OFFICIAL_NM"]
+        }
+    }
+    return "Nama tidak ditemukan"
+}
+
 fn main() {
     let selectedPerson = open("dosen.json").read()
         |> json.loads()
