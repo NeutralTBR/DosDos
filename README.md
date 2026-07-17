@@ -1,7 +1,5 @@
 # DosDos
 
----
-
 A desktop app that generates a formal opening greeting for a thesis defense (sidang skripsi). It randomly picks one lecturer as the examiner (penguji) and looks up a specific lecturer as the supervisor (pembimbing), then displays the full greeting in a resizable dark-themed window.
 
 ## What It Does
