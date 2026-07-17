@@ -19,6 +19,8 @@ fn main() {
     let selectedPerson = random.choice(dosen_data)
     let penguji = selectedPerson["n_OFFICIAL_NM"]
     let pembimbing = get_pembimbing_name(dosen_data, "D5850")
+    let greeting = "Yang terhormat, Bapak/Ibu " + penguji + " selaku penguji sidang skripsi hari ini.\n"+
+    "Yang saya hormati, Bapak/Ibu " + pembimbing + " selaku Dosen Pembimbing saya, yang telah banyak memberikan bimbingan dan arahan hingga skripsi ini dapat diselesaikan.\n"
 
     ctk.set_appearance_mode("dark")
     ctk.set_default_color_theme("blue")
