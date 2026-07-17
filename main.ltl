@@ -27,7 +27,8 @@ fn main() {
 
     let root = ctk.CTk()
     root.title("Random Dosen Selector")
-    root.geometry("400x150")
+    root.geometry("600x400")
+    root.minsize(400, 300)
 
     let label = ctk.CTkLabel(root)
     label.configure(text=finalName, font=("Arial", 20))
