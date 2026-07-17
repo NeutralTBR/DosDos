@@ -14,11 +14,11 @@ fn get_pembimbing_name(dosen_list, target_id) {
 }
 
 fn main() {
-    let selectedPerson = open("dosen.json").read()
+    let dosen_data = open("dosen.json").read()
         |> json.loads()
-        |> random.choice()
-        
-    let finalName = selectedPerson["n_OFFICIAL_NM"]
+    let selectedPerson = random.choice(dosen_data)
+    let penguji = selectedPerson["n_OFFICIAL_NM"]
+    let pembimbing = get_pembimbing_name(dosen_data, "D5850")
 
     ctk.set_appearance_mode("dark")
     ctk.set_default_color_theme("blue")
