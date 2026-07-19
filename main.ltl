@@ -19,8 +19,6 @@ fn main() {
     let selectedPerson = random.choice(dosen_data)
     let penguji = selectedPerson["n_OFFICIAL_NM"]
     let pembimbing = get_pembimbing_name(dosen_data, "D5850")
-    let greeting = "Yang terhormat, Bapak/Ibu " + penguji + " selaku penguji sidang skripsi hari ini.\n"+
-    "Yang saya hormati, Bapak/Ibu " + pembimbing + " selaku Dosen Pembimbing saya, yang telah banyak memberikan bimbingan dan arahan hingga skripsi ini dapat diselesaikan.\n"
 
     ctk.set_appearance_mode("dark")
     ctk.set_default_color_theme("blue")
@@ -30,16 +28,21 @@ fn main() {
     root.geometry("600x400")
     root.minsize(400, 300)
 
-    let label = ctk.CTkLabel(root)
-    label.configure(text=greeting, font=("Arial", 24), justify="center")
-    label.place(relx=0.5, rely=0.5, anchor="center")
+    let text_box = ctk.CTkTextbox(root, wrap="word", fg_color="transparent", font=("Arial", 24))
+    
+    text_box.tag_config("center", justify="center")
+    text_box.tag_config("highlight", foreground="#3a7ebf")
+    text_box._textbox.tag_config("highlight", font=("Arial", 24, "bold"))
 
-    root.bind("<Configure>", fn(event) {
-        let currentWidth = root.winfo_width() - 40
-        if currentWidth > 0 {
-            label.configure(wraplength = currentWidth)
-        }
-    })
+    text_box.insert("end", "Yang terhormat, Bapak/Ibu\n")
+    text_box.insert("end", penguji, "highlight")
+    text_box.insert("end", "\nselaku penguji sidang skripsi hari ini.\n\nYang saya hormati, Bapak/Ibu\n")
+    text_box.insert("end", pembimbing, "highlight")
+    text_box.insert("end", "\nselaku Dosen Pembimbing saya, yang telah banyak memberikan bimbingan dan arahan hingga skripsi ini dapat diselesaikan.")
+
+    text_box.tag_add("center", "1.0", "end")
+    text_box.configure(state="disabled")
+    text_box.place(relx=0.5, rely=0.5, anchor="center", relwidth=0.9, relheight=0.8)
 
     root.mainloop()
 }
